@@ -4,17 +4,18 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace TheRedDwarf.Controllers
 {
-    public class AuthenticationController : Controller
+    public class AccountController : Controller
     {
         [Authorize]
-        public IActionResult TestAuthentication()
+        public IActionResult Authenticate()
         {
             return View();
         }
         
-        public IActionResult TestSignOut()
+        public IActionResult Logout()
         {
             HttpContext.SignOutAsync();
+            // This does not seem to be the correct endpoint
             return Redirect("https://accounts.google.com/Logout");
         }
     }
