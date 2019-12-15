@@ -15,8 +15,12 @@ namespace TheRedDwarf.Controllers
         public IActionResult Logout()
         {
             HttpContext.SignOutAsync();
-            // This does not seem to be the correct endpoint
-            return Redirect("https://accounts.google.com/Logout");
+            return Redirect("https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://localhost:5001/Account/LoggedOut");
+        }
+
+        public IActionResult LoggedOut()
+        {
+            return View();
         }
     }
 }
